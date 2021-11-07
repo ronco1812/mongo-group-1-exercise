@@ -22,10 +22,11 @@ let persons = [
 ]
 const express = require("express");
 const app = express();
+app.use(express.json())
 
 
-app.get('/api/persons', (request, response) => {
-    response.json(persons)
+app.get('/api/persons', (req, res) => {
+    res.json(persons)
   })
 
 app.get('/api/info',(req,res) =>{
@@ -33,21 +34,7 @@ app.get('/api/info',(req,res) =>{
       + `${new Date()}`  
       res.send(info)
     })
-
-    // app.post('/api/persons/:id', (req,res) => {
-    //   const body = req.body;
-    //   if(!body.content){
-    //       return res.status(400).json({error:"content missing"})
-    //   }
-    //   const info = {
-    //     content: body.content,
-    //     important: body.important || false,
-    //     date: new Date(),
-        
-    // }
-    // res.json(info)
-    // })
-    app.get('/api/persons/:id', (req, res) => {
+app.get('/api/persons/:id', (req, res) => {
         const id = Number(req.params.id)
         const person = persons.find(person => person.id === id)
         if(person){
@@ -58,13 +45,42 @@ app.get('/api/info',(req,res) =>{
         }
       })
 
-      app.delete('/api/persons/:id', (req, res) => {
+app.delete('/api/persons/:id', (req, res) => {
         const id = Number(req.params.id)
         persons = persons.filter(person => person.id !== id)
       
         res.status(204).end()
       })
-  
+
+
+      const generateId = () => {
+        const maxId = persons.length > 0
+          ? Math.max(...persons.map(n => n.id))
+          : 0
+        return maxId + 1
+      }
+      
+ app.post('/api/persons', (req, res) => {
+  const body = req.body
+
+  if (!body.content) {
+    return res.status(400).json({ 
+      error: 'content missing' 
+    })
+  }
+
+  const person = {
+    id: generateId(),
+    name: body.content.name,
+    number: body.content.number
+  }
+
+  persons = persons.concat(person)
+
+  res.json(person)
+      })
+
+
   const PORT = 3001
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
