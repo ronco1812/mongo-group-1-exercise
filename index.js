@@ -59,6 +59,14 @@ app.delete('/api/persons/:id', (req, res) => {
           : 0
         return maxId + 1
       }
+      const isExist =(Ename) => {
+        for(let i = 0; i<persons.length; i++) {
+          if (persons[i].name === Ename) {
+            return true;
+        }
+      }
+      return false;
+    }
       
  app.post('/api/persons', (req, res) => {
   const body = req.body
@@ -67,6 +75,12 @@ app.delete('/api/persons/:id', (req, res) => {
     return res.status(400).json({ 
       error: 'content missing' 
     })
+  }
+  if(!body.content.name||!body.content.number){
+    return res.status(400).json({error:'missing name or number'})
+  }
+  if(isExist(body.content.name)){
+    return res.status(400).json({error:'name already exist'})
   }
 
   const person = {
