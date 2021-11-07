@@ -22,9 +22,31 @@ let persons = [
 ]
 const express = require("express");
 const app = express();
+
+
 app.get('/api/persons', (request, response) => {
     response.json(persons)
   })
+
+// app.post('/api/info', (req,res) => {
+//   const body = req.body;
+//   if(!body.content){
+//       return res.status(400).json({error:"content missing"})
+//   }
+//   const info = {
+//     content: body.content,
+//     important: body.important || false,
+//     date: new Date(),
+    
+// }
+// res.json(info)
+// })
+
+app.get('/api/info',(req,res) =>{
+    const info = `phoneBook has info of ${persons.length} contacts. \n`
+     + `${new Date()}`  
+        res.send(info)
+})
   
   const PORT = 3001
   app.listen(PORT, () => {
