@@ -1,4 +1,4 @@
-const server = '/';
+const server = 'http://localhost:3001/';
 const body = document.getElementById("root");  
 const phoneBook = createElement("div",[],["view-book"]);
 const searchDiv = createElement('div',
