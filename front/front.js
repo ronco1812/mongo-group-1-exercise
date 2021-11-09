@@ -1,4 +1,4 @@
-const server = '';
+const server = '/';
 const body = document.getElementById("root");  
 const phoneBook = createElement("div",[],["view-book"]);
 const searchDiv = createElement('div',
@@ -16,7 +16,7 @@ body.append(phoneBook);
 body.append(searchDiv); 
 const getContacts = async () => {
     try {
-        const { data } = await axios.get(`${server}/api/persons`);
+        const { data } = await axios.get(`${server}api/persons`);
         data.forEach((contact) => {
             const person = createElement('div',[],["view-person"],{'id': contact.id})
             const name = createElement('p');

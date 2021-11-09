@@ -42,7 +42,7 @@ app.use( morgan(function (tokens, req, res) {
 app.use(express.json())
 app.use(cors())
 app.get('/', (req, res) => {
-  res.sendFile('front/index.html');
+  res.sendFile('./front/index.html');
 })
 app.use('/', express.static('front'))
 app.get('/api/persons', (req, res) => {
