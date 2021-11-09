@@ -3,7 +3,7 @@ const body = document.getElementById("root");
 const phoneBook = createElement("div",[],["view-book"]);
 const searchDiv = createElement('div',
 [createElement('h3',[],[],{},'add/search/delete by name :'),
-createElement('input',[],["search-name"],{'type' : 'text','placeholder' : 'enter name'}),
+createElement('input',[],["search-name"],{'type' : 'text','placeholder' : 'enter full name'}),
 createElement('br'),
 createElement('input',[],["search-number"],{'type' : 'text', 'placeholder' : 'enter number'}),
 createElement('br'),
