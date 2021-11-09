@@ -23,7 +23,8 @@ let persons = [
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-const cors = require('cors')
+const cors = require('cors');
+const path = require('path');
 
 app.use( morgan(function (tokens, req, res) {
   if (req.method === 'POST') {
@@ -40,7 +41,10 @@ app.use( morgan(function (tokens, req, res) {
 
 app.use(express.json())
 app.use(cors())
-
+app.get('/', (req, res) => {
+  res.sendFile('front/index.html');
+})
+app.use('/', express.static('front'))
 app.get('/api/persons', (req, res) => {
     res.json(persons)
   })
