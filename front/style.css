@@ -2,14 +2,19 @@
     background-color: aquamarine;
     text-align: center;
 }
-.view-book{
+#phone-book{
     border: brown solid;
-    display: inline-flex;
+    border-radius: 50px;
 }
 .view-person{
     border:brown solid;
     background-color: brown;
+    border-radius: 50px;
+    margin-left: 25vw;
+    margin-right: 25vw;
 }
-.search-div{
+#manage{
     border: brown solid;
+    margin-left: 25vw;
+    margin-right: 25vw;
 }

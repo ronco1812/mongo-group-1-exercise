@@ -9,7 +9,39 @@
 </head>
 <body id="body">
    <div id="root">
-    <h1>PhoneBook</h1>
+       <h1>PhoneBook</h1>
+       <button onclick="divHandler(event)">show phone-book</button>
+       <button onclick="hidePB(event)" hidden='true'>hide phone-book</button>
+       <br>
+       <button onclick="divHandler(event)">add/remove contacts</button><br>
+       <button onclick="divHandler(event)">update contact</button><br>
+       <div id="phone-book" hidden="true"></div>
+       <div id="manage" hidden ="true">
+           <b>add/delete contacts here :</b><br>
+           <input type="text" id="name" placeholder="enter name">
+           <input type="text" id="number" placeholder="enter number">
+           <br>
+           <br>
+           <button id="add" onclick="newContact()">add</button>
+           <button id="delete" onclick="deleteContact()">delete</button>
+
+
+
+       </div>
+       <div id="update" hidden="true">
+        <b>update contacts here :</b><br>
+        <input type="text" id="current-name" placeholder="enter contact current name"><br>
+        <input type="text" id="up-name" placeholder="enter name"><br>
+        <input type="text" id="up-number" placeholder="enter number">
+        <br>
+        <br>
+        <button id="add" onclick="updateContact()">update</button>
+
+
+
+
+    </div>
+   </div>
    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <script src="./front.js"></script>
 </body>
