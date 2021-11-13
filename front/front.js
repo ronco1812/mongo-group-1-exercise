@@ -29,7 +29,10 @@ const newContact = async() => {
                     name: name,
                     number: number,
                 }
-            }).then(() => alert('new contact has been added'))
+            }).then(() => alert('new contact has been added')).then(() => {
+                const manage = document.getElementById('manage');
+                manage.setAttribute('hidden',true);
+            } )
         } catch (error) {
             alert('oops....something went wrong' + error.massage)
         }
