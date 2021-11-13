@@ -1,4 +1,4 @@
-const server = 'http://localhost:3001/';
+const server = '/';
 const body = document.getElementById("root");  
 const phoneBook = document.getElementById("phone-book");
 const getContacts = async () => {
