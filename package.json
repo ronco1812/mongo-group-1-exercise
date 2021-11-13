@@ -20,7 +20,9 @@
   "homepage": "https://github.com/ronco1812/mongo-group-1-exercise#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "mongoose": "^6.0.12",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
