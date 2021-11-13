@@ -71,7 +71,10 @@ const updateContact = async() =>{
                     name: name,
                     number: number
                 }
-            }).then(alert(`${Cname} has been updated to ${name} and ${number}`))
+            }).then(alert(`${Cname} has been updated to ${name} and ${number}`)).then(()=>{
+                const update = document.getElementById('update');
+                update.setAttribute('hidden',true);
+            })
         } catch (error) {
             alert(`oops.....something went wrong` + error.massage)
         }
@@ -82,11 +85,6 @@ const updateContact = async() =>{
     
 }
 
-function hidePB(event){
-    body.children[2].setAttribute('hidden',true);
-    body.children[1].removeAttribute('hidden'); 
-    phoneBook.setAttribute("hidden", true);
-}
 
 function createElement(tagName ,children = [], classes = [], attributes = {},innerText) {
     const el = document.createElement(tagName);
